@@ -1,0 +1,8 @@
+Account Customer : 
+Email = [Nama_Belakang]@gmail.com -> rizqy@gmail.com
+Password = [Nama_Belakang]123 -> rizqy123
+
+Account Store : 
+Email = [NamaStore]@gmail -> nike@gmail
+Password = [NamaStore] -> nike
+

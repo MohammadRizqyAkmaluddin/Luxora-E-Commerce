@@ -1,0 +1,239 @@
+
+@keyframes slideDown {
+    from {
+        width: 2200px;
+        bottom: -900px;
+        /* Mulai dari atas layar */
+    }
+    to {
+        width: 1100px;
+        bottom: 0px;
+         /* Berakhir di tengah layar */
+    }
+}
+@keyframes textzoom {
+    from {
+        font-size: 500px;
+        opacity: 50%;
+        top: 50px;
+    }
+    to {
+        font-size: 130px;
+       opacity: 100%;
+    }
+}
+
+@keyframes formDelay {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+/*=============== VARIABLES CSS ===============*/
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
+
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+  /*=============== BASE ===============*/
+
+#hero{
+    display: flex;
+    align-items: center;
+}
+.banner{
+    position: relative;
+    display: inline-block;
+    right: 10px;
+}
+.loginBanner {
+    position: left;
+    animation: slideDown 2s forwards;
+}
+.banner h1{
+    position: absolute;
+    top: 35%;
+    left: 200px;
+    animation: textzoom 2s forwards;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    padding: 10px 20px;
+    border-radius: 10px;
+    letter-spacing: 40px;
+    font-weight: 100;
+}
+
+
+.container{
+    animation: formDelay 2s forwards;
+    width:1000px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    margin-right: 80px;
+}
+
+.container h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    opacity: 80%;
+    
+}
+.container h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    opacity: 50%;
+    padding-bottom: 50px;
+    
+}
+.genderCat {
+    margin: 5px;
+    width: 100%;
+}
+select.genderCat option.unselected {
+    color: gray;
+}
+select.genderCat option:not(.unselected) {
+    color: black;
+}
+select.genderCat {
+    background-color: transparent; /* Hitam transparan */
+    border: 1px solid rgb(0, 0, 0);
+    padding: 8px;
+    border-radius: 8px;
+    appearance: none; /* Menghilangkan default style bawaan browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+   
+}
+select.genderCat option:checked {
+    background-color: #E0DECE;
+}
+
+/* Saat dropdown dibuka */
+select.genderCat:focus {
+    background-color: transparent; /* Lebih gelap saat dibuka */
+    outline: none;
+}
+select.genderCat:hover {
+    background-color: rgba(212, 218, 168, 0.299); /* Lebih gelap saat dibuka */
+    outline: none;
+}
+
+/* Style untuk opsi dalam select */
+select.genderCat option {
+    background-color: rgba(0, 0, 0, 0.085);
+    color: rgb(107, 107, 107);
+}
+
+.nameForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+.nameForm input{
+    height: 40px;
+    border-radius: 8px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: transparent;
+    color: #000000;
+    border-radius: 10px;
+    resize: none;
+}
+textarea::placeholder{
+    text-align: left;
+}
+
+#signUpSeller textarea{
+    margin: 5px;
+}
+textarea::-webkit-scrollbar {
+    display: none;
+}
+.addressGender{
+    display: flex;
+    margin: 5px;
+}
+
+input{
+    width:100%;
+    background-color:transparent;
+    padding-left:10px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    outline: none;
+    font-size:13px;
+    margin: 5px;
+}
+
+input::placeholder{
+  text-align: left;
+}
+
+.btn{
+    border-radius:15px;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    background:rgb(49, 49, 49);
+    color:#E0DECE;
+    cursor:pointer;
+    transition:0.9s;
+    border: none;
+    margin-top: 20px;
+}
+.btn:hover{
+    background:#5d5d5d;
+}
+
+.links{
+    padding-top: 50px;
+    font-size: 15px;
+    color: #777777;
+    padding-right: 50px;
+}
+.links .have{
+    padding-right: 20px;
+}
+button{
+    font-family: "Bebas Neue", sans-serif;
+    border:none;
+    color: rgb(49, 49, 49);
+    background-color:transparent;
+    font-weight:200;
+    font-size: 15px;
+    cursor: pointer;
+}
+button:hover{
+    color:rgb(131, 131, 131);
+}
+
+.popMessage {
+    font-family: "Bebas Neue", sans-serif;
+    background-color: #ffe6e6;
+    color: #a22323;
+    border: 1px solid #cc0000;
+    padding: 2px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    width: 300px;
+    font-size: 15px;
+}

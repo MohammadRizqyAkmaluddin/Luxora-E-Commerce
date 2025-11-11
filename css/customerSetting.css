@@ -1,0 +1,281 @@
+
+.secHeader{
+  width: 98.5%;
+  background-color: #ffffff;
+  height: 60px;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.secHeader h1{
+  margin-left: 30px;
+  font-size: 25px;
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 700;
+  color: rgb(66, 66, 66);
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup{
+  width: 5000px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  transform: translate(-200%, -100%) scale(1.1);
+  text-align: center;
+  box-shadow: 4px 4px 10px 4px rgba(0.1, 0.1, 0.1, 0.1);
+  color: black;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.open-popup{
+ visibility: visible;
+ transform: translate(-200%, -80%) scale(1);
+}
+.open-popupp{
+ visibility: visible;
+ transform: translate(-200%, -100%) scale(1);
+}
+.pop{
+  width: 300px;
+  display: flex;
+  border: none;
+  height: 80px;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop a{
+  width: 100%;
+}
+
+.pop button{
+  border: none;
+  background-color: #000;
+  color: white;
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.form-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.popup form{
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.pop form .btn{
+  width: 200px;
+}
+
+.profile-img {
+  width: 200px; height: 200px; border-radius: 50%;
+  object-fit:cover;
+  border: 1px solid rgba(189, 189, 189, 0.429);
+  background-color: #ffffff;
+}
+
+
+.setting-main{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+  width: 98.5%;
+  height: 100%;
+}
+
+.settings{
+  background-color: white;
+  text-align: center;
+  width: 40%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top h1{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 600;
+  color: rgb(66, 66, 66);
+  font-size: 25px;
+}
+.top p{
+  font-size: 15px;
+}
+.settings .top{
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.setting-list{
+  width: 100%; 
+  margin-left: 30px; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.setting-list p{
+  background:rgb(49, 49, 49);
+  color: white;
+  border-radius: 7px;
+  width: 400px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+.setting-list p:hover{
+  color: #686867;
+}
+.left-side{
+  width: 80%;
+  height: 350px;
+}
+.profile-manager{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+.profile-container{
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.image-setting{
+  position: relative;
+}
+
+.image-setting .fa-solid {
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  border-radius: 20px;
+  font-size: 30px;
+  right: 100px;
+  transform: translate(-260%, -190%);
+  background-color: #ffffff83;
+
+  color: rgb(0, 0, 0); 
+}
+
+.image-setting:hover .profile-img{
+  opacity: 0.8;
+}
+.image-setting:hover .fa-solid{
+  opacity: 1;
+}
+
+.profile-details{
+  display: flex;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.popup form button{
+  background-color: transparent;
+}
+
+.data-profile{
+  margin-left: 50px;
+}
+.data-profile h1{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+}
+.data-second{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.data-second p{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #686867;
+}
+
+
+
+.setting-list form{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: transparent;
+  color: #000000;
+  border-radius: 10px;
+  resize: none;
+}
+textarea::placeholder{
+  text-align: left;
+}
+.input-group{
+  width: 200px;
+}
+
+input{
+  text-align: center;
+  width:100%;
+  background-color:transparent;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  outline: none;
+  font-size:13px;
+  margin: 5px;
+}
+input::placeholder{
+text-align: center;
+}
+
+
+.btn{
+  border-radius: 5px;
+  font-size: 15px;
+  background:rgb(49, 49, 49);
+  color:#ffffff;
+  cursor:pointer;
+  transition:0.9s;
+  border: none;
+  width: 80px;
+}
+.btn:hover{
+  background:#5d5d5d;
+}
+
+

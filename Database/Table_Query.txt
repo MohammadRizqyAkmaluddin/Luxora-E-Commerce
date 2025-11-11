@@ -1,0 +1,177 @@
+DROP DATABASE IF EXISTS luxora;
+CREATE DATABASE luxora;
+
+CREATE TABLE customer (
+  customerID VARCHAR(6) PRIMARY KEY,
+  Name VARCHAR(50),
+  gender VARCHAR(50),
+  PhoneNumber VARCHAR(20),
+  Address VARCHAR(50),
+  Email VARCHAR(50),
+  Password VARCHAR(255),
+  customerImage VARCHAR(255)
+)ENGINE=InnoDB;
+
+CREATE TABLE sizecategory (
+  sizeType VARCHAR(50) PRIMARY KEY
+)ENGINE=InnoDB;
+
+CREATE TABLE sizelist (
+  size VARCHAR(6) PRIMARY KEY,
+  sizeType VARCHAR(50),
+  
+  FOREIGN KEY (sizeType) REFERENCES sizecategory(sizeType)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE `store` (
+  storeID VARCHAR(6) PRIMARY KEY,
+  storename VARCHAR(50),
+  storePhoneNum VARCHAR(20),
+  storeEmail VARCHAR(50),
+  storeAddress VARCHAR(50),
+  storeDescription TEXT,
+  password VARCHAR(255),
+  storeImage VARCHAR(255)
+)ENGINE=InnoDB;
+
+CREATE TABLE productcategory (
+  productTypeID VARCHAR(6) PRIMARY KEY,
+  productType VARCHAR(50),
+  sizeType VARCHAR(50),
+
+  FOREIGN KEY (sizeType) REFERENCES sizecategory(sizeType)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE product (
+  productID VARCHAR(6) PRIMARY KEY,
+  productTypeID VARCHAR(2),
+  storeID VARCHAR(6),
+  productName VARCHAR(50),
+  productDescription text,
+  price INT,
+  stock INT,
+  productImage VARCHAR(255),
+
+  FOREIGN KEY (productTypeID) REFERENCES productcategory(productTypeID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (storeID) REFERENCES `store`(storeID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE shoppingcart (
+  customerID VARCHAR(6),
+  productID VARCHAR(6),
+  size VARCHAR(6),
+  quantity INT,
+  price INT,
+  totalPrice DECIMAL(10,2),
+
+  PRIMARY KEY (customerID, productID, size),
+  FOREIGN KEY (customerID) REFERENCES customer(customerID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (productID) REFERENCES product(productID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (size) REFERENCES sizelist(size)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE delivery (
+  deliveryID VARCHAR(2) PRIMARY KEY,
+  deliveryType VARCHAR(50),
+  deliveryFee DECIMAL(10,2)
+)ENGINE=InnoDB;
+
+CREATE TABLE payment (
+  paymentTypeID VARCHAR(2) PRIMARY KEY,
+  paymentType VARCHAR(50),
+  adminFee DECIMAL(10,2),
+  paymentIcon VARCHAR(255)
+)ENGINE=InnoDB;
+
+CREATE TABLE hotdeals (
+  productID VARCHAR(6),
+  discount DECIMAL(10,2),
+  finalPrice DECIMAL(10,2),
+
+  PRIMARY KEY (productID),
+  FOREIGN KEY (productID) REFERENCES product(productID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE `order` (
+  orderID VARCHAR(6) PRIMARY KEY,
+  customerID VARCHAR(6),
+  paymentTypeID VARCHAR(50),
+  tax DECIMAL(10,2),
+  totalPrice DECIMAL(10,2),
+  orderDate TIMESTAMP,
+
+  FOREIGN KEY (customerID) REFERENCES customer(customerID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (paymentTypeID) REFERENCES payment(paymentTypeID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE suborder (
+  subOrderID VARCHAR(6) PRIMARY KEY,
+  orderID VARCHAR(6),
+  storeID VARCHAR(6),
+  deliveryID VARCHAR(2),
+  subTotal DECIMAL(10,2),
+
+  FOREIGN KEY (orderID) REFERENCES `order`(orderID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (storeID) REFERENCES `store`(storeID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (deliveryID) REFERENCES delivery(deliveryID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE orderdetail (
+  orderDetailID VARCHAR(6) PRIMARY KEY,
+  subOrderID VARCHAR(6),
+  productID VARCHAR(6),
+  size VARCHAR(6),
+  quantity INT,
+  price DECIMAL(10,2),
+
+  FOREIGN KEY (subOrderID) REFERENCES suborder(subOrderID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (productID) REFERENCES product(productID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (size) REFERENCES sizelist(size)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE productreview (
+  orderDetailID VARCHAR(6),
+  rating INT,
+  review text,
+  reviewDate DATE,
+
+  PRIMARY KEY (orderDetailID),
+  FOREIGN KEY (orderDetailID) REFERENCES orderdetail(orderDetailID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE storereview (
+  subOrderID VARCHAR(6),
+  review text,
+  rating INT,
+
+  PRIMARY KEY (subOrderID),
+  FOREIGN KEY (subOrderID) REFERENCES suborder(subOrderID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE wishlist (
+  customerID VARCHAR(6),
+  productID VARCHAR(6),
+
+  FOREIGN KEY (customerID) REFERENCES customer(customerID)
+  ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (productID) REFERENCES product(productID)
+  ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;

@@ -1,0 +1,611 @@
+main{
+  width: 75%;
+  margin: auto;
+  padding-top: 0px;
+  z-index: 100;
+}
+.slider{
+  padding-top: 0px;
+  width: 100%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10% 90%,
+      transparent
+  );
+}
+.slider .list{
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
+}
+.slider .list .item{
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  animation: autoRun 10s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+}
+.slider .list .item img{
+  width: 100%;
+}
+@keyframes autoRun{
+  from{
+      left: 100%;
+  }to{
+      left: calc(var(--width) * -1);
+  }
+}
+.slider:hover .item{
+  animation-play-state: paused!important;
+  filter: grayscale(1);
+}
+.slider .item:hover{
+  filter: grayscale(0);
+}
+.slider[reverse="true"] .item{
+  animation: reversePlay 10s linear infinite;
+}
+@keyframes reversePlay{
+  from{
+      left: calc(var(--width) * -1);
+  }to{
+      left: 100%;
+  }
+}
+
+.content-banner{
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+}
+.hero{
+  border-radius: 10px;
+  
+  height: 450px;
+  width: 90%;
+  justify-content: center;
+  background-color: #000;
+  background-image: url('../images/mainBanner.jpg');
+  background-size: cover; /* Agar gambar menyesuaikan ukuran layar */
+  background-position: center; /* Pusatkan gambar */
+  background-repeat: no-repeat;
+  margin-left: 80px;
+}
+.hero button{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  width: 200px;
+  height: 50px;
+  border: 2px solid rgb(255, 255, 255); 
+  border-radius: 20px;
+  margin-left: 655px;
+  position: relative;
+  top: 75%;
+}
+.hero button a{
+  color: white;
+}
+.hero button:hover{
+  background-color: #0000006d;
+}
+
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a { text-decoration: none; }
+
+li { list-style: none; }
+
+button {
+  background: none;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+img, ion-icon, button, a { display: block; }
+
+span { display: inline-block; }
+
+html {
+  font-family: "Poppins", sans-serif;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+}
+
+input {
+  display: block;
+  width: 100%;
+  font: inherit;
+}
+
+
+
+.third-section{
+  display: flex;
+  align-items: center;
+
+}
+.contentHotdeals{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contentHotdeals h1{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  align-items: center;
+  color: #313131;
+  text-align: center;
+}
+.content-box{
+  margin-top: 20px;
+  width: 628px;
+  height: 490px;
+  background-color: #fbe480;
+}
+.content-box .text{
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.content-box span{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+.content-box button{
+  background-color: #000;
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 600;
+  width: 130px;
+  height: 35px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.content-box button a{
+  color: white;
+}
+
+.hotdealsList{
+  margin-left: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.hotdeals-wrap{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.hotdeals-wrap:hover{
+  transform: rotate(-2deg);
+  
+}
+.hotdeals-wrap:hover .hotdeals-container{
+  background-color: #efefef;
+}
+
+.hotdeals-container {
+  width: 190px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f8f8f8; /* Warna latar belakang frame */
+  padding: 10px;
+}
+
+.hotdeals-image {
+  width: 170px;
+  height: auto;
+  object-fit: cover;
+}
+.hotdeals-pricing{
+  display: flex;
+  align-items: center;
+}
+.hotdeals-price{
+  font-size: 15px;
+}
+.real-hotdeals-price{
+  position: relative;
+  display: inline-block;
+  color: rgb(173, 173, 173);
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+.real-hotdeals-price::after {
+  content: "";
+  position: absolute;
+  width: 100%; /* Panjang garis sesuai teks */
+  height: 1px; /* Ketebalan garis */
+  background-color: rgb(255, 0, 0); /* Warna garis */
+  top: 35%;
+  left: 0;
+  transform: rotate(-10deg); /* Putar garis agar diagonal */
+}
+
+
+
+.contentCategory{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.contentCategory h1{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  margin-top: 30px;
+  align-items: center;
+  color: #313131;
+}
+.categoryWrap{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
+}
+.category{
+  width: 300px;
+  height: 180px;
+  background-color: #f1f1f1b6;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.category:hover{
+  background-color: rgb(233, 233, 233);
+  transform: scale(1.05);
+}
+.catImage{
+  height: auto;
+  margin-left: 140px;
+}
+.catImage1{
+  height: auto;
+  margin-left: 120px;
+}
+.catImage2{
+  height: auto;
+  margin-left: 120px;
+}
+.catImage3{
+  height: auto;
+  margin-left: 100px;
+}
+.catImage4{
+  height: auto;
+  margin-left: 70px;
+}
+.catImage5{
+  height: auto;
+  margin-left: 90px;
+}
+
+.category h2{
+  font-size: 25px;
+  margin-left: 20px;
+  margin-bottom: 90px;
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 600;
+  color: #3f3f3f;
+  width: 0px;
+}
+
+.productMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  border-top: 2px solid var(--cultured);
+}
+.productMain h1{
+  font-family: "Afacad Flux", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  margin-top: 20px;
+  align-items: center;
+  color: #313131;
+}
+
+.productList{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  width: 80%;
+  column-gap: 0px;
+  row-gap: 20px;
+}
+.product-container {
+  position: relative;
+  
+}
+.product-container:hover{
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+ .productbutton{
+  display: flex;
+  position: absolute;
+  top: 80%;
+  left: 30%;
+ }
+
+.add-to-cart-btn {
+  border: none;
+  padding: 5px 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.add-to-cart-btn1 {
+  text-align: center;
+  border: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 15px;
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  background-color: #0000008f;
+}
+
+.add-to-cart-btn img{
+  background-color: #000000a8;
+
+  padding: 5px;
+  width: 30px;
+}
+.add-to-cart-btn1:hover{
+  background-color: #000000;
+}
+
+.product-container:hover .add-to-cart-btn,
+.product-container:hover .add-to-cart-btn1 {
+  opacity: 1;
+}
+
+.product-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  height: 100%;
+}
+.product-image {
+  width: 250px;
+  height: auto;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+  padding: 2px;
+  text-align: center;
+  
+  margin: 5px;
+  object-fit:contain;
+}
+
+.product-info {
+  width: 70%;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 14px;
+  color: #313131;
+  align-items: left;
+}
+
+.product-name {
+  font-weight: bold;
+  margin-top: 8px;
+}
+.product-store {
+  font-weight: 300;
+  color: gray;
+}
+.product-pricing{
+  display: flex;
+}
+.real-product-price{
+  position: relative;
+  display: inline-block;
+  color: rgb(173, 173, 173);
+  font-size: 10px;
+  margin-left: 10px;
+  margin-top: 3px;
+  text-decoration: line-through;
+}
+
+
+
+.popup{
+  width: 500px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  text-align: center;
+  box-shadow: 4px 4px 10px 4px rgba(0.1, 0.1, 0.1, 0.1);
+  color: rgb(255, 255, 255);
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+.open-popup{
+ visibility: visible;
+ top: 50%;
+ transform: translate(-50%, -50%) scale(1);
+}
+.pop{
+ width: 50px;
+ background-color: aliceblue;
+}
+
+.last{
+  width: 250px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last img{
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: all ease-in-out 0.2s;
+}
+.product-name-bestseller{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  gap: 0px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  margin-left: 0px;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+}
+.product-name-bestseller a{
+  color: rgb(68, 68, 68);
+  text-align: left;
+}
+.last img:hover{
+  width: 100%;
+  height: 200px;
+}
+.best-sellings{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  
+}
+.shirts{
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+
+
+
+
+.dropdown-panel-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Membagi menjadi 3 kolom */
+  gap: 10px; /* Jarak antar item */
+  padding: 0;
+  list-style: none; /* Menghilangkan default bullet pada <ul> */
+}
+
+.panel-list-item {
+  display: flex; /* Jika butuh align konten di dalam */
+  justify-content: center;
+}
+
+.brand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand-wrap img {
+  max-width: 100px;
+  height: 100px;
+}
+.brand-wrap p{
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.nav-category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.nav-category img{
+  width: 80px;
+  height:auto;  
+}
+.nav-category a{
+  font-family: "Bebas Neue", sans-serif; 
+}
+
+.rating {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.rating h2 {
+    font-size: 12px;
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
+}
+.rating p {
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(202, 202, 202);
+}
+.star {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 2.5;
+}
+.star.full {
+  fill: rgb(0, 0, 0);
+}
+.star.half path {
+  fill: url(#halfBlack);
+}
+.price-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

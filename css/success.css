@@ -1,0 +1,186 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+} 
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(236, 236, 236);
+}
+
+
+.check-loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 180px;
+    background-color: #343434;
+}
+
+label {
+    position: absolute;
+    top: 5%;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border: 4px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    border-left-color: #1e971f;
+    animation: rotate 1.2s linear infinite;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+label div {
+    display: none;
+}
+
+label div:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 15px;
+    transform: scaleX(-1) rotate(135deg);
+    width: 15px;
+    height: 37px;
+    border-top: 4px solid #62a13b;
+    border-right: 4px solid #62a13b;
+    transform-origin: left top;
+    animation: check 0.8s ease;
+}
+
+@keyframes check {
+    0% { height: 0; width: 0; opacity: 1; }
+    20% { height: 0; width: 13px; opacity: 1; }
+    40% { height: 37px; width: 15px; opacity: 1; }
+    100% { height: 37px; width: 15px; opacity: 1; }
+}
+
+input {
+    display: none;
+}
+
+input:checked ~ label div {
+    display: block;
+}
+
+input:checked ~ label {
+    animation: none;
+    border-color: #72b14b;
+    transition: border 0.5s ease-out;
+}
+
+
+
+.after {
+    opacity: 0; /* Awalnya tersembunyi */
+    animation: fadeIn 0.2s ease-in-out forwards;
+    animation-delay: 2s; /* Muncul setelah 2 detik */
+}
+.after h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    color: #ffffff;
+    text-shadow: 4px 4px 10px 4px rgba(125, 125, 125, 0.1);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(50px);
+    }
+}
+
+
+.cart-details{
+    opacity: 0;
+    animation: summeryFadeIn 0.2s ease-in-out forwards;
+    animation-delay: 0.5s; 
+    top: 0;
+    text-align: center;
+}
+.cart-details p{
+    
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+}
+.cart-details h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    color: rgb(66, 66, 66);
+    text-align: center;
+    text-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.1);
+  }
+
+.rincian-cart{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+  .rincian-name{
+    display: flex;
+    flex-direction: column;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    width: 250px;
+  }
+  .rincian-name p{
+    border-bottom: 1px solid rgb(230, 230, 230);
+  }
+  .rincian-number{
+    display: flex;
+    flex-direction: column;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+  }
+  .cart-details a{
+    margin-top: 20px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #343434;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rincian-number h2{
+    font-size: 20px;
+  }
+
+  @keyframes summeryFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+}

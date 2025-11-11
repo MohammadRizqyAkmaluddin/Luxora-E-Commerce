@@ -1,0 +1,162 @@
+
+body{
+    background-color: white;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    height: 700px;
+    background-color: white;
+}
+.left-content{
+    width: 20%;
+    height: 1080px;
+    position: relative;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 0 5px -2px rgba(0, 0, 0, 0.3);
+}
+.text{
+    margin-top: 80px;
+    margin-right: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 25px;
+}
+.text h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px; 
+    font-size: 25px;  
+}
+.right-content{
+    width: 70%;
+    height: 80%;
+    margin-top: 50px;
+}
+
+.order-history{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.product-images{
+    display: flex; 
+    align-items: left;
+    justify-content: left;
+    padding: 5px;
+    width: 70%;
+    gap: 5px;
+    
+}
+.wrap{
+    position: relative; width: 100px; height: 100px; ;
+    
+}
+.wrap img{
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+}
+.more-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.312);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.order h3{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: rgba(38, 38, 38, 0.8);
+    text-align: center;
+}
+.order-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-content form select{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    margin-right: 70px;
+    border-radius: 5px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+
+}
+.left-content a{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 70px;
+    color: black;
+}
+.left-content a i{
+    margin-right: 10px;
+    font-size: 25px;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+}
+.buttons a{
+    color: black;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    width: 130px;
+    height: 30px;
+    margin-left: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 216, 24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons a:hover{
+    color: rgb(41, 41, 41);
+    background-color: rgb(230, 197, 35);
+}

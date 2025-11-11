@@ -1,0 +1,150 @@
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.store-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+.storeInformation{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 50px;
+}
+.storeInformation i{
+  margin-right: 20px;
+}
+.store_name{
+  font-size: 40px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+.store_detail{
+  font-size: 15px;
+}
+
+.product-section{
+  width: 100%;
+  height: 400px;
+}
+.product-list-header{
+  background-color: rgba(241, 241, 241, 0.736);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-list-header form input{
+  border-radius: 15px;
+  height: 30px;
+  width: 300px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  padding-left: 50px;
+  font-size: 15px;
+}
+.product-list-header form input::placeholder{
+font-size: 15px;
+}
+.product-list-header form{
+  margin-right: 20px;
+  position: relative; 
+  display: inline-block;
+}
+.product-list-header form i{
+  position: absolute; 
+  left: 15px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  color: rgba(46, 46, 46, 0.442);
+  font-size: 15px;
+  border-right: 1px solid rgba(46, 46, 46, 0.442);
+  padding-right: 10px;
+}
+
+.product-list{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+}
+.product-wrap img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.product-preview{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+.slider{
+  --width: 200px;
+  --height: 200px;
+  padding-top: 0px;
+  width: 60%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10% 90%,
+      transparent
+  );
+}
+.slider .list{
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
+}
+.slider .list .item{
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  animation: autoRun 10s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+}
+.slider .list .item img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+@keyframes autoRun{
+  from{
+      left: 100%;
+  }to{
+      left: calc(var(--width) * -1);
+  }
+}
+.slider:hover .item{
+  animation-play-state: paused!important;
+  filter: grayscale(1);
+}
+.slider .item:hover{
+  filter: grayscale(0);
+}
+.slider[reverse="true"] .item{
+  animation: reversePlay 10s linear infinite;
+}
+@keyframes reversePlay{
+  from{
+      left: calc(var(--width) * -1);
+  }to{
+      left: 100%;
+  }
+}
